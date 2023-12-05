@@ -90,3 +90,24 @@ jobs:
       - name: Run tests
         run: |
           npm run test -- --colors
+
+  Deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Run playbook
+      uses: dawidd6/action-ansible-playbook@v2
+      with:
+        # Required, playbook filepath
+        playbook: ../ansible/ec2_deploy.yml
+        # Optional, directory where playbooks live
+        directory: ./
+        # Optional, SSH private key
+        key: ${{secrets.SSH_PRIVATE_KEY}} TODO:
+        # Optional, encrypted vault password
+        vault_password: ${{secrets.VAULT_PASSWORD}} TODO:
+        # Optional, additional flags to pass to ansible-playbook
+        options: |
+          TODO:
+
+# TODO: add secrets, add vault secrets, test and run -> update from nano to medium 
