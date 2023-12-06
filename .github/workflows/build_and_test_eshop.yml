@@ -125,6 +125,8 @@ jobs:
           key: ${{secrets.AWS_SECRET_KEY}}
           # Optional, encrypted vault password
           vault_password: ${{secrets.ANSIBLE_VAULT_PWD}}
+              # Optional, galaxy requirements filepath
+          requirements: requirements.yml
           # Optional, additional flags to pass to ansible-playbook
           options: |
             --user ec2-user

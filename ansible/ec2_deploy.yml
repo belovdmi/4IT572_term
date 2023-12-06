@@ -6,12 +6,10 @@
 
   tasks:
     - name: Get EC2 Instances info
-      amazon.aws.ec2_instance:
+      amazon.aws.ec2_instance_info:
         region: us-east-1
         filters:
           "tag:Name": "eshop"
-        key_name: beld09-aws-1.0
-        security_group: eshop
         aws_access_key: "{{ access_key }}"
         aws_secret_key: "{{ secret_key }}"
         security_token: "{{ session_token }}"
