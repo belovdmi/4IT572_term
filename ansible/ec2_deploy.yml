@@ -57,7 +57,7 @@
     #   shell: usermod -a -G docker ec2-user
     #   become: yes
     - name: Build docker with eshop
-      shell: cd app && docker build -t myeshop:latest .
+      shell: docker build -t myeshop:latest .
       become: yes
     - name: Run Docker with eshop
       shell: docker run -p 80:3000 myeshop
