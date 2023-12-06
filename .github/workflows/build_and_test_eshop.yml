@@ -1,4 +1,4 @@
-name: Build, deploy and tests eshop
+name: Build, install, deploy and tests eshop
 
 on:
   pull_request:
