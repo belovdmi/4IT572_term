@@ -54,9 +54,9 @@
     - name: Start Docker on startup
       shell: systemctl enable docker
       become: yes
-    - name: Set rights to docker
-      shell: usermod -a -G docker ec2-user
-      become: yes
+    # - name: Set rights to docker
+    #   shell: usermod -a -G docker ec2-user
+    #   become: yes
     - name: Get project files from git
       git:
         repo: "https://github.com/belovdmi/4IT572_docker.git"
