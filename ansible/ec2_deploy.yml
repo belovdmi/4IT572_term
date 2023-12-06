@@ -9,7 +9,8 @@
       amazon.aws.ec2_instance_info:
         region: us-east-1
         filters:
-          vpc_subnet_id: subnet-0b9fff508f3ddea93
+          tag:
+            Name: "eshop"
         aws_access_key: "{{ access_key }}"
         aws_secret_key: "{{ secret_key }}"
         security_token: "{{ session_token }}"
@@ -34,6 +35,8 @@
         vpc_subnet_id: subnet-0b9fff508f3ddea93
         network:
             assign_public_ip: yes
+        tag:
+          Name: "eshop"
         wait: yes
         count: 1
         security_group: eshop
