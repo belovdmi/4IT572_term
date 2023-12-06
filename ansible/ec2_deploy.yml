@@ -39,7 +39,7 @@
 
   tasks:
     - name: Install Git and Docker
-      yum:
+      apt:
         name:
           - docker
           - git

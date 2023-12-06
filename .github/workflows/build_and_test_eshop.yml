@@ -111,6 +111,9 @@ jobs:
           pip install boto3 botocore
           pip install ansible
 
+      - name: Check current user
+        run: whoami
+
       - name: Run playbook
         uses: dawidd6/action-ansible-playbook@v2.6.1
         with:
