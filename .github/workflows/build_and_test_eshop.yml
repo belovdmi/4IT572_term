@@ -107,7 +107,7 @@ jobs:
       - run: pip3 install boto boto3
 
       - name: Run playbook
-        uses: dawidd6/action-ansible-playbook@v2.6.3
+        uses: dawidd6/action-ansible-playbook@v2.6.1
         with:
           # Required, playbook filepath
           playbook: ec2_deploy.yml
