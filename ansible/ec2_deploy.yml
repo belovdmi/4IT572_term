@@ -1,12 +1,30 @@
 - name: Deploy to EC2
   hosts: localhost
   connection: local
+  collections:
+    - amazon.aws
 
   tasks:
-    - name: Terminate every running instance in a region. Use with EXTREME caution.
-      ec2_instance:
+    - name: Get EC2 Instances info
+      amazon.aws.ec2_instance_info:
         region: us-east-1
-        state: absent
+        filters:
+          "tag:Name": "eshop"
+        aws_access_key: "{{ aws_access_key }}"
+        aws_secret_key: "{{ aws_secret_key }}"
+        security_token: "{{ session_token }}"
+      register: ec2_info
+
+    - name: Terminate old EC2 Instance
+      amazon.aws.ec2_instance:
+        region: us-east-1
+        state: "absent"
+        exact_count: 0
+        aws_access_key: "{{ aws_access_key }}"
+        aws_secret_key: "{{ aws_secret_key }}"
+        security_token: "{{ session_token }}"
+        wait: yes
+      with_items: "{{ ec2_info.instances }}"
     - name: Launch EC2 instance
       ec2_instance:
         instance_type: t2.medium
