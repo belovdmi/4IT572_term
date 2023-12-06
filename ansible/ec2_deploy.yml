@@ -61,7 +61,7 @@
       become: yes
     - name: Get project files from git
       git:
-        repo: 'https://github.com/belovdmi/4IT572_docker.git'
+        repo: 'https://github.com/belovdmi/4IT572_term.git'
         dest: ./app
     - name: Build docker with eshop
       shell: cd app && docker build -t myeshop:latest .
