@@ -14,8 +14,6 @@
         vpc_subnet_id: subnet-0b9fff508f3ddea93
         network:
             assign_public_ip: yes
-        tag:
-          Name: "eshop"
         wait: yes
         exact_count: 1
         security_group: eshop
