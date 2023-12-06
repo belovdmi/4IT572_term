@@ -11,7 +11,7 @@
         key_name: beld09-aws-1.0
         vpc_subnet_id: subnet-04e72d569e67596c7
         network:
-          assign_public_ip: yes
+            assign_public_ip: yes
         wait: yes
         count: 1
         security_group: eshop
@@ -23,7 +23,7 @@
     - name: Add instance host to group
       add_host:
         hostname: "{{ item.public_ip_address }}"
-        groupname: launcheder4
+        groupname: launched
       loop: "{{ ec2_instance_result.instances }}"
 
     - name: Wait for SSH connection
@@ -34,7 +34,7 @@
       loop: "{{ ec2_instance_result.instances }}"
 
 - name: Configure EC2
-  hosts: localhost
+  hosts: launched
   connection: ssh
 
   tasks:
@@ -59,7 +59,7 @@
       become: yes
     - name: Get project files from git
       git:
-        repo: "https://github.com/belovdmi/4IT572_docker.git"
+        repo: 'https://github.com/belovdmi/4IT572_docker.git'
         dest: ./app
     - name: Build docker with eshop
       shell: cd app && docker build -t myeshop:latest .
@@ -70,4 +70,5 @@
       poll: 0
       become: yes
     - wait_for:
-        port: 80
+        port:
+          80
