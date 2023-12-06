@@ -86,8 +86,8 @@
   connection: local
 
   tasks:
-  - name: Ensure all volumes are tagged
-    amazon.aws.ec2:
-      instance_tags:
-          NameToBeDeleted: true
-      state: absent
+    - name: Terminate old EC2 instances
+      amazon.aws.ec2:
+        instance_tags:
+            NameToBeDeleted: true
+        state: absent
