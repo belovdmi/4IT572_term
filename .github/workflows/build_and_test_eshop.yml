@@ -107,7 +107,8 @@ jobs:
       
       - name: Install boto
         run: |
-          sudo pip install boto3
+          python -m pip install --upgrade pip
+          pip install boto3 botocore
 
       - name: Run playbook
         uses: dawidd6/action-ansible-playbook@v2.6.1
