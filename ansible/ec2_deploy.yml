@@ -5,22 +5,8 @@
     - amazon.aws
 
   tasks:
-
-    - name: Terminate old EC2 Instance
-      amazon.aws.ec2_instance:
-        region: us-east-1
-        vpc_subnet_id: subnet-0b9fff508f3ddea93
-        state: "absent"
-        exact_count: 0
-        key_name: beld09-aws-1.0
-        security_group: eshop
-        aws_access_key: "{{ access_key }}"
-        aws_secret_key: "{{ secret_key }}"
-        security_token: "{{ session_token }}"
-        wait: yes
-
     - name: Launch EC2 instance
-      ec2_instance:
+      amazon.aws.ec2_instance:
         instance_type: t2.medium
         image_id: ami-0230bd60aa48260c6
         region: us-east-1
@@ -31,7 +17,7 @@
         tag:
           Name: "eshop"
         wait: yes
-        count: 1
+        exact_count: 1
         security_group: eshop
         aws_access_key: "{{ access_key }}"
         aws_secret_key: "{{ secret_key }}"
