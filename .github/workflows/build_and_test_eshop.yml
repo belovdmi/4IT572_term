@@ -100,11 +100,14 @@ jobs:
         with:
           token: ${{ secrets.WORKFLOW_TOKEN }}
       
-      - name: Setup python and libs
+      - name: Setup python
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
-        run: pip3 install boto botocore boto3
+      
+      - name: Install libs
+        run: | 
+          pip3 install boto botocore boto3
 
       - name: Run playbook
         uses: dawidd6/action-ansible-playbook@v2.6.1
