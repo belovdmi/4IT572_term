@@ -17,7 +17,7 @@
     - name: Terminate old EC2 Instance
       amazon.aws.ec2_instance:
         region: us-east-1
-        state: "absent"
+        state: absent
         aws_access_key: "{{ access_key }}"
         aws_secret_key: "{{ secret_key }}"
         security_token: "{{ session_token }}"
