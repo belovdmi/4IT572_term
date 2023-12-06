@@ -3,6 +3,11 @@
   connection: local
 
   tasks:
+  - name: Terminate every running instance in a region. Use with EXTREME caution.
+    ec2_instance:
+      state: absent
+      filters:
+        instance-state-name: running
     - name: Launch EC2 instance
       ec2_instance:
         instance_type: t2.medium
@@ -13,7 +18,7 @@
         network:
             assign_public_ip: yes
         wait: yes
-        exact-count: 1
+        count: 1
         security_group: eshop
         aws_access_key: "{{ access_key }}"
         aws_secret_key: "{{ secret_key }}"
