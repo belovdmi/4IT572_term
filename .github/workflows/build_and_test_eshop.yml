@@ -107,7 +107,7 @@ jobs:
       
       - name: Install jmespath
         run: |
-        sudo pipx inject boto3 botocore
+          sudo pipx inject boto3 botocore
 
       - name: Run playbook
         uses: dawidd6/action-ansible-playbook@v2.6.1
