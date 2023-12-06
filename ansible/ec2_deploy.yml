@@ -4,13 +4,13 @@
 
   tasks:
     - name: Ensure all volumes are tagged
-      ec2_tag:
-        region:  eu-west-1
-        resource: "{{ item.id }}"
-        state: present
+      ec2_instance:
+        instance_type: t2.medium
+        image_id: ami-0230bd60aa48260c6
+        region: us-east-1
+        vpc_subnet_id: subnet-0b9fff508f3ddea93
         tags:
-          ToBeDeleted: true
-        loop: "{{ ec2_vol.volumes }}"
+          NameToBeDeleted: true
     - name: Launch EC2 instance
       ec2_instance:
         instance_type: t2.medium
