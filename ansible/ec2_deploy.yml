@@ -29,16 +29,6 @@
   connection: local
 
   tasks:
-        - name: Get EC2 Instances info
-      amazon.aws.ec2_instance_info:
-        region: us-east-1
-        filters:
-          "tag:Name": "eshop"
-        aws_access_key: "{{ access_key }}"
-        aws_secret_key: "{{ secret_key }}"
-        security_token: "{{ session_token }}"
-      register: ec2_info
-
     - name: Launch EC2 instance
       ec2_instance:
         instance_type: t2.medium
