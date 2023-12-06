@@ -5,6 +5,7 @@
   tasks:
     - name: Terminate every running instance in a region. Use with EXTREME caution.
       ec2_instance:
+        region: us-east-1
         state: absent
         filters:
           vpc_subnet_id: subnet-0b9fff508f3ddea93
