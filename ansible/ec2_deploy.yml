@@ -9,8 +9,7 @@
       amazon.aws.ec2_instance_info:
         region: us-east-1
         filters:
-          tag:
-            Name: "eshop"
+          "tag:Name": "eshop"
         aws_access_key: "{{ access_key }}"
         aws_secret_key: "{{ secret_key }}"
         security_token: "{{ session_token }}"
@@ -26,6 +25,7 @@
         security_token: "{{ session_token }}"
         wait: yes
       with_items: "{{ ec2_info.instances }}"
+      
     - name: Launch EC2 instance
       ec2_instance:
         instance_type: t2.medium
