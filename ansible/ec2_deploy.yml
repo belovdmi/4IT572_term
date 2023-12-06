@@ -1,8 +1,6 @@
 - name: Deploy to EC2
   hosts: localhost
   connection: local
-  collections:
-    - amazon.aws
 
   tasks:
     - name: Launch EC2 instance
