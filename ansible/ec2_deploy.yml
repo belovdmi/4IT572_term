@@ -9,7 +9,7 @@
         image_id: ami-0230bd60aa48260c6
         region: us-east-1
         key_name: beld09-aws-1.0
-        vpc_subnet_id: subnet-04e72d569e67596c7
+        vpc_subnet_id: subnet-0b9fff508f3ddea93
         network:
             assign_public_ip: yes
         wait: yes
