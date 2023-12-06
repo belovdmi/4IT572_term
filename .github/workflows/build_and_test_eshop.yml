@@ -103,11 +103,10 @@ jobs:
         # Optional, directory where playbooks live
         directory: ./
         # Optional, SSH private key
-        key: ${{secrets.SSH_PRIVATE_KEY}} TODO:
+        key: ${{secrets.AWS_SECRET_KEY}}
         # Optional, encrypted vault password
-        vault_password: ${{secrets.VAULT_PASSWORD}} TODO:
+        vault_password: ${{secrets.ANSIBLE_VAULT_PWD}}
         # Optional, additional flags to pass to ansible-playbook
         options: |
-          TODO:
-
-# TODO: add secrets, add vault secrets, test and run -> update from nano to medium 
+          --ask-vault-pass
+          --user ec2-user
