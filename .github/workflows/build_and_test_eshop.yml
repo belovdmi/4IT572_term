@@ -82,7 +82,7 @@ jobs:
           node-version: 14
 
       - name: Cache node modules
-        uses: actions/cache@v3.3.2
+
         with:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-lock.json') }}
@@ -103,7 +103,7 @@ jobs:
       - name: Setup python and libs
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: '3.9'
       - run: pip3 install boto botocore boto3
 
       - name: Run playbook
