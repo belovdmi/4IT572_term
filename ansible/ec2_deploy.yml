@@ -42,7 +42,6 @@
       apt:
         name:
           - docker
-          - git
         state: latest
         update_cache: yes
       become: yes
@@ -57,10 +56,6 @@
     # - name: Set rights to docker
     #   shell: usermod -a -G docker ec2-user
     #   become: yes
-    - name: Get project files from git
-      git:
-        repo: "https://github.com/belovdmi/4IT572_docker.git"
-        dest: ./app
     - name: Build docker with eshop
       shell: cd app && docker build -t myeshop:latest .
       become: yes
