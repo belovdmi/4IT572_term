@@ -99,9 +99,9 @@ jobs:
       uses: dawidd6/action-ansible-playbook@v2
       with:
         # Required, playbook filepath
-        playbook: ./ansible/ec2_deploy.yml
+        playbook: ec2_deploy.yml
         # Optional, directory where playbooks live
-        directory: ./
+        directory: ./ansible/
         # Optional, SSH private key
         key: ${{secrets.AWS_SECRET_KEY}}
         # Optional, encrypted vault password
