@@ -4,7 +4,7 @@
 
   tasks:
     - name: Terminate currently running EC2 instance
-      ec2:
+      ec2_instance:
         instance_ids: "{{item.instance_id}}"
         region: us-east-1
         state: absent
