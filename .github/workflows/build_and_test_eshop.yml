@@ -94,6 +94,8 @@ jobs:
   Deploy:
     runs-on: ubuntu-latest
 
+    steps:
+
       - name: Run playbook
         uses: actions/setup-python@v4
         uses: dawidd6/action-ansible-playbook@v2.6.1
