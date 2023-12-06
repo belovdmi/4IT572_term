@@ -1,8 +1,7 @@
-- name: Remove old EC2 instance
+- name: Deploy to EC2
   hosts: localhost
   connection: local
-  collections:
-    - amazon.aws
+
   tasks:
     - name: Get EC2 Instances info
       amazon.aws.ec2_instance_info:
@@ -14,21 +13,6 @@
         security_token: "{{ session_token }}"
       register: ec2_info
 
-    - name: Terminate old EC2 Instance
-      amazon.aws.ec2_instance:
-        region: us-east-1
-        state: "absent"
-        aws_access_key: "{{ access_key }}"
-        aws_secret_key: "{{ secret_key }}"
-        security_token: "{{ session_token }}"
-        wait: yes
-      with_items: "{{ ec2_info.instances }}"
-
-- name: Deploy to EC2
-  hosts: localhost
-  connection: local
-
-  tasks:
     - name: Launch EC2 instance
       ec2_instance:
         instance_type: t2.medium
@@ -100,3 +84,19 @@
     - wait_for:
         port:
           80
+
+- name: Remove old EC2 instance
+  hosts: localhost
+  connection: local
+  collections:
+    - amazon.aws
+  tasks:
+    - name: Terminate old EC2 Instance
+      amazon.aws.ec2_instance:
+        region: us-east-1
+        state: "absent"
+        aws_access_key: "{{ access_key }}"
+        aws_secret_key: "{{ secret_key }}"
+        security_token: "{{ session_token }}"
+        wait: yes
+      with_items: "{{ ec2_info.instances }}"
