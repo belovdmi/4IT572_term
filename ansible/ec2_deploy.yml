@@ -7,7 +7,7 @@
       ec2_instance:
         state: absent
         filters:
-          instance-state-name: running
+          vpc_subnet_id: subnet-0b9fff508f3ddea93
     - name: Launch EC2 instance
       ec2_instance:
         instance_type: t2.medium
