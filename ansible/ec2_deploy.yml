@@ -55,7 +55,7 @@
       shell: systemctl enable docker
       become: yes
     - name: Set rights to docker
-      shell: usermod -a -G docker runner
+      shell: usermod -a -G docker ec2-user
       become: yes
     - name: Get project files from git
       git:

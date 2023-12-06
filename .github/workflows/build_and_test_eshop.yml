@@ -127,4 +127,4 @@ jobs:
           vault_password: ${{secrets.ANSIBLE_VAULT_PWD}}
           # Optional, additional flags to pass to ansible-playbook
           options: |
-            --user runner
+            --user ec2-user
