@@ -3,14 +3,14 @@
   connection: local
 
   tasks:
-  - name: Ensure all volumes are tagged
-    ec2_tag:
-      region:  eu-west-1
-      resource: "{{ item.id }}"
-      state: present
-      tags:
-        ToBeDeleted: true
-      loop: "{{ ec2_vol.volumes }}"
+    - name: Ensure all volumes are tagged
+      ec2_tag:
+        region:  eu-west-1
+        resource: "{{ item.id }}"
+        state: present
+        tags:
+          ToBeDeleted: true
+        loop: "{{ ec2_vol.volumes }}"
     - name: Launch EC2 instance
       ec2_instance:
         instance_type: t2.medium
